@@ -33,13 +33,9 @@ body {
   /* --- GLOBAL CENTERING --- */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Horizontal Center */
-  justify-content: center; /* Vertical Center */
+  align-items: center;
+  justify-content: center;
 }
-
-/* --- PAGE LAYOUTS --- */
-/* (Specific layout tweaks are no longer needed for centering since body handles it, 
-   but we keep gap logic here) */
 
 body.gift-page {
   gap: 50px;
@@ -109,7 +105,6 @@ h2 {
   display: flex;
   align-items: center;
   gap: 10px;
-  /* Ensure header dots align nicely */
 }
 
 .dots {
@@ -147,9 +142,6 @@ h2 {
   color: #cbd5e1;
   line-height: 1.6;
   font-size: 0.95rem;
-  /* Code is typically left-aligned, but if you strictly want centered text: */
-  /* text-align: center; */
-  /* kept left-align for code aesthetics */
 }
 
 .terminal-body h3 {
@@ -223,7 +215,7 @@ h2 {
 .gift-btn {
   display: inline-flex;
   align-items: center;
-  justify-content: center; /* Center content inside button */
+  justify-content: center;
   gap: 10px;
   background-color: var(--primary-rose);
   color: white;
@@ -252,7 +244,7 @@ h2 {
   font-size: 0.9rem;
   display: flex;
   align-items: center;
-  justify-content: center; /* Center content */
+  justify-content: center;
   gap: 8px;
   padding: 10px 20px;
   background: rgba(255, 255, 255, 0.5);
@@ -265,7 +257,7 @@ h2 {
   background: rgba(255, 255, 255, 0.8);
 }
 
-/* --- COMPONENT: MUSIC/PLAYLIST CARD (Quick Link) --- */
+/* --- COMPONENT: MUSIC/PLAYLIST CARD --- */
 .playlist-card {
   background: white;
   width: 100%;
@@ -377,13 +369,19 @@ h2 {
   height: 14px;
 }
 
-/* --- 3D BOOK STYLES --- */
+/* --- 3D BOOK & LONG CONTENT STYLES --- */
+
+/* Hidden Checkbox logic */
+input.book-toggle {
+  display: none;
+}
+
 .perspective-container {
-  perspective: 1000px;
-  width: 220px;
-  height: 300px;
-  /* Center container if not flex child */
+  perspective: 1500px; /* Increased perspective for bigger book */
+  width: 320px; /* Increased Width */
+  height: 480px; /* Increased Height for more text */
   margin: 0 auto;
+  max-width: 90vw; /* Mobile safety */
 }
 
 .book {
@@ -392,16 +390,13 @@ h2 {
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
   border-radius: 12px;
 }
 
-.perspective-container:hover .cover {
-  transform: rotateY(-160deg);
-}
-
-.perspective-container:active .cover {
-  transform: rotateY(-160deg);
+/* The Toggle Logic: When checked, rotate the COVER */
+input.book-toggle:checked ~ .perspective-container .book .cover {
+  transform: rotateY(-180deg);
 }
 
 .cover {
@@ -413,7 +408,7 @@ h2 {
   background: linear-gradient(135deg, #ff6b6b 0%, #ee5253 100%);
   border-radius: 12px 16px 16px 12px;
   transform-origin: left;
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -439,31 +434,82 @@ h2 {
   backface-visibility: hidden;
 }
 
+/* INNER PAGE (The Content) */
 .inner-page {
   position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: white;
-  border-radius: 8px 12px 12px 8px;
+  border-radius: 12px 16px 16px 12px; /* Match cover shape */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
   z-index: 1;
   background-image: linear-gradient(to right, #e3e3e3 1px, transparent 1px);
-  background-size: 20px 100%;
-  box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  background-size: 24px 100%;
+  box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.1);
+  padding: 10px 4px 10px 10px; /* Padding for spine */
+}
+
+/* Container for text to allow scrolling */
+.content-scroll {
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px 40px 20px;
+  overflow-y: auto; /* Enable Vertical Scroll */
+  overflow-x: hidden;
+
+  /* Scrollbar styling for Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #fca5a5 transparent;
+}
+
+/* Scrollbar styling for Webkit */
+.content-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.content-scroll::-webkit-scrollbar-thumb {
+  background-color: #fca5a5;
+  border-radius: 10px;
 }
 
 .inner-heart {
   color: #ef4444;
-  font-size: 40px;
+  font-size: 32px;
   margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
   animation: pulse 1.5s infinite;
+}
+
+.long-text {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #334155;
+  text-align: left;
+}
+
+.long-text p {
+  margin-bottom: 15px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #94a3b8;
+  cursor: pointer;
+  z-index: 20;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #ef4444;
 }
 
 @keyframes pulse {

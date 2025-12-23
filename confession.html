@@ -1,116 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Gift</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body class="gift-page">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="gift-page">
+
     <!-- Floating Notes Background -->
-    <div
-      class="music-note"
-      style="left: 10%; top: 80%; font-size: 24px; animation-delay: 0s"
-    >
-      ♪
-    </div>
-    <div
-      class="music-note"
-      style="left: 85%; top: 60%; font-size: 32px; animation-delay: 1.5s"
-    >
-      ♫
-    </div>
-    <div
-      class="music-note"
-      style="left: 20%; top: 30%; font-size: 20px; animation-delay: 3s"
-    >
-      ♩
-    </div>
-    <div
-      class="music-note"
-      style="left: 70%; top: 85%; font-size: 28px; animation-delay: 4.5s"
-    >
-      ♬
-    </div>
+    <div class="music-note" style="left: 10%; top: 80%; font-size: 24px; animation-delay: 0s;">♪</div>
+    <div class="music-note" style="left: 85%; top: 60%; font-size: 32px; animation-delay: 1.5s;">♫</div>
+    <div class="music-note" style="left: 20%; top: 30%; font-size: 20px; animation-delay: 3s;">♩</div>
+    <div class="music-note" style="left: 70%; top: 85%; font-size: 28px; animation-delay: 4.5s;">♬</div>
 
     <!-- SECTION 1: THE BOOK -->
     <div>
-      <h2>Btw, I have something for you</h2>
-      <p class="hint">Hover or tap the book to reveal</p>
+        <h2>Btw, I have something for you inside the book</h2>
+        <p class="hint">Try to open it and find out</p>
 
-      <div class="perspective-container">
-        <div class="book">
-          <div class="inner-page">
-            <div class="inner-heart">♥</div>
-            <p style="font-weight: bold; color: #1e293b; font-size: 1rem">
-              If you haven't noticed it yet, this is a confession.
-            </p>
-            <p style="font-size: 0.8rem; color: #64748b; margin-top: 5px">
-              Let me state the obvious first—I like you. don't want to overwhelm
-              you, I just wanna express myself, considering that I might not
-              have the slightest chance of this feeling being reciprocated and
-              this should've been done face to face but nauna kang umuwi so here
-              I go hehehe.
-            </p>
-          </div>
-          <div class="cover">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="40"
-              height="40"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              style="margin-bottom: 10px"
-            >
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-            </svg>
-            <div
-              style="font-weight: bold; letter-spacing: 2px; font-size: 1.2rem"
-            >
-              Short Message
+        <!-- Hidden Checkbox for Click Interaction -->
+        <input type="checkbox" id="book-toggle" class="book-toggle">
+
+        <div class="perspective-container">
+            <div class="book">
+                <!-- Inner Page (The Content) -->
+                <div class="inner-page">
+                    <!-- Close Button -->
+                    <label for="book-toggle" class="close-btn" title="Close Book">×</label>
+                    
+                    <div class="content-scroll">
+                        <div class="inner-heart">♥</div>
+                        <h3>If you haven't noticed it yet, this is a confession.</h3>
+                        <br>
+                        
+                        <!-- PASTE YOUR 2000+ WORDS HERE -->
+                        <div class="long-text">
+                            <p>Let me state the obvious first—I like you. I don't want to overwhelm you, I just wanna express myself, considering that I might not have the slightest chance of this feeling being reciprocated and this should've been done face to face but nauna kang umuwi so here I go hehehe.</p>
+                            
+                            <p>This feeling is unique from what I've experienced before because I never planned on liking you, it just came naturally. From the moment we started talking, I felt the synchrony between our personalities because mega yappers pala tayo and I initially thought, "finally, another yapper friend yeyyy" but turns out, I'm wrong. I was mesmerized by your voice, that's what hooked me at first kasi ang ganda talaga ng voice mo, like legit. The more we hung out together, the more I realized that what I'm feeling towards you is different and I eventually fell for your personality. I don't know how to explain it, but with everytime I see you, I start acting differently. You're really something else HAHAHAHAHAH.
+</p>
+                            
+                            <p>Now, this confession is just my way of telling and expressing what I feel towards you because I felt like you should know about this. I don't really expect a reciprocation but I am really want to get to know you deeply as a person, get to know your personality even more, your habits, everything. I like you, Angie. Merry Christmas, and God Bless you and your family.
+</p>
+                             <p>*By the time I'm writing this segment, you're really not talking to me atm or rather, we have no online interaction HAHAHAHAHAHAH. When you manage to read this, you can either ignore it, or you can respond as well.*</p>
+                            
+                            <br>
+                            <p class="signature">Let's stay friends plss,<br>Rain</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cover (The Click Trigger) -->
+                <label for="book-toggle" class="cover">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px;">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
+                    <div style="font-weight: bold; letter-spacing: 2px; font-size: 1.4rem;">For you</div>
+                    <div style="font-size: 0.9rem; opacity: 0.9; margin-top: 5px;">Click to Open</div>
+                </label>
             </div>
-            <div
-              style="font-size: 0.75rem; opacity: 0.8; margin-top: 5px"
-            ></div>
-          </div>
         </div>
-      </div>
     </div>
 
-    <!-- SECTION 2: THE PLAYLIST (ID for anchor linking) -->
+    <!-- SECTION 2: THE PLAYLIST -->
     <div id="playlist" class="player-card">
-      <div class="player-header">
-        <h3>Also,here's an album I dedicated for you</h3>
-        <p>
-          Explanation: I know you like OPM and Musicals, so I figured this will
-          be somewhat a bit out of your ordinary music. "A Song for Every Moon"
-          is an album released by Bruno Major. In my own understanding, this
-          album is about a journey of someone going through love and all that. I
-          placed this here because whenever I listen to this, I think about how
-          I *redacted*
-        </p>
-      </div>
-
-      <div class="spotify-wrapper">
-        <!-- Spotify Embed -->
-        <iframe
-          style="border-radius: 12px"
-          src="https://open.spotify.com/embed/album/3IGPQEGAiZZI4Iba81GNq5?utm_source=generator"
-          width="100%"
-          height="352"
-          frameborder="0"
-          allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-      </div>
+        <div class="player-header">
+            <h3>Also,here's an album I dedicated for you</h3>
+            <p>
+                Explanation: I know you like OPM and Musicals,
+                so I figured this will be somewhat a bit out of your
+                ordinary music. "A Song for Every Moon" is an album
+                released by Bruno Major. In my own understanding, this
+                album is about a journey of someone going through love and all that.
+                I placed this here because whenever I listen to this, I think about how I
+                went from seeing you as friend and transitioning to liking you more than a 
+                friend. I dedicated the song "Like someone In Love" for you. Enjoyyy!!!!
+            </p>
+        </div>
+        
+        <div class="spotify-wrapper">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/3IGPQEGAiZZI4Iba81GNq5?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        </div>
     </div>
 
-    <a href="index.html" class="back-link"> ← Back to Home </a>
-  </body>
+    <a href="index.html" class="back-link">
+        ← Back to Home
+    </a>
+
+</body>
 </html>
